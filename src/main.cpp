@@ -198,7 +198,7 @@ int main()
     currentpos.y = 5;
 
     int currentrot = 0;
-    int currentshape = 0; 
+    int currentshape = 3; 
 
     while(isrunning)
     {
@@ -265,7 +265,7 @@ int main()
                 //for transfereing shape to the grid permenantly
                 if (gridarray[x][y] != 0) {
 
-                    SDL_SetRenderDrawColor(render , 2 , 25 ,255 ,255);
+                    SDL_SetRenderDrawColor(render , 255 , 0 ,255 ,255);
                     SDL_RenderFillRect(render , &box);
                 }
 
@@ -300,12 +300,12 @@ int main()
         if(copyEnabled){
             for(int i =0 ; i< 4; i++){
                 for(int j = 0 ; j<4; j++){
-                    if(shapes[currentrot][i][j] != 0){
+                    if(shapes[currentshape][currentrot][i][j] != 0){
                         gridarray[currentpos.x + i][currentpos.y + j] = shapes[currentshape][currentrot][i][j];
                     }
                 }
             }
-            currentpos.y = 5;
+            currentpos.y = 0;
         }
         
 

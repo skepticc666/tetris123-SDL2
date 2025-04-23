@@ -137,34 +137,34 @@ int shapes[5][4][4][4] = {
     }
 };
 
-void shapeColor(SDL_Rect box , SDL_Renderer* render) {
+// void shapeColor( int m,SDL_Rect box , SDL_Renderer* render) {
 
-    int m = rand() % 6;
    
-       switch(m){
-           case 1:
-               SDL_SetRenderDrawColor(render, 50 , 40 , 60 , 255);
-               SDL_RenderFillRect(render , &box);
-               break;
-           case 2:
-               SDL_SetRenderDrawColor(render, 10 , 70 , 60 , 255);
-               SDL_RenderFillRect(render , &box);         
-               break;
-           case 3:
-               SDL_SetRenderDrawColor(render, 50 , 90 , 0 , 255);
-               SDL_RenderFillRect(render , &box);
-               break;
-           case 4:
-               SDL_SetRenderDrawColor(render, 70 , 20 , 50 , 255);
-               SDL_RenderFillRect(render , &box);
-               break;
-           case 5:
-               SDL_SetRenderDrawColor(render, 30 , 30 , 30 , 255);
-               SDL_RenderFillRect(render , &box);
-               break;
-       }
+   
+//        switch(m){
+//            case 1:
+//                SDL_SetRenderDrawColor(render, 50 , 40 , 60 , 255);
+//                SDL_RenderFillRect(render , &box);
+//                break;
+//            case 2:
+//                SDL_SetRenderDrawColor(render, 10 , 70 , 60 , 255);
+//                SDL_RenderFillRect(render , &box);         
+//                break;
+//            case 3:
+//                SDL_SetRenderDrawColor(render, 50 , 90 , 0 , 255);
+//                SDL_RenderFillRect(render , &box);
+//                break;
+//            case 4:
+//                SDL_SetRenderDrawColor(render, 70 , 20 , 50 , 255);
+//                SDL_RenderFillRect(render , &box);
+//                break;
+//            case 5:
+//                SDL_SetRenderDrawColor(render, 30 , 30 , 30 , 255);
+//                SDL_RenderFillRect(render , &box);
+//                break;
+//        }
             
-    }
+//     }
 
 
      
@@ -277,20 +277,22 @@ int main()
         bool copyEnabled = false;
 
         //
-
+       
         for(int x =0 ; x< 4 ; x++){
             for(int y = 0 ; y < 4  ; y++){
                 box.x = (currentpos.x + x) * box.w;
                 box.y = (currentpos.y + y) * box.h;
-
-                if (shapes[currentrot][x][y] != 0) {
+                
+                if (shapes[currentshape][currentrot][x][y] != 0) {
                     if(currentpos.y + y == 19 || gridarray[currentpos.x + x][currentpos.y + y + 1] != 0){
                         
                         copyEnabled = true;
 
                     }
+
                     
-                    shapeColor(box , render);
+                    SDL_SetRenderDrawColor(render, 50 , 40 , 60 , 255);
+                    SDL_RenderFillRect(render , &box);
                     
                 }
             }

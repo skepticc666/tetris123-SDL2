@@ -2,145 +2,102 @@
 
 #include <iostream>
 
-
 #include <SDL2/SDL.h>
 
 int shapes[5][4][4][4] = {
-    { // T- shape
-        {
-            { 0, 0, 0, 0 },
-            { 1, 1, 1, 0 },
-            { 0, 1, 0, 0 },
-            { 0, 0, 0, 0 }
-        },
-        {
-            { 0, 0, 0, 0 },
-            { 0, 1, 0, 0 },
-            { 1, 1, 0, 0 },
-            { 0, 1, 0, 0 }
-        },
-        {
-            { 0, 0, 0, 0 },
-            { 0, 1, 0, 0 },
-            { 1, 1, 1, 0 },
-            { 0, 0, 0, 0 }
-        },
-        {
-            { 0, 0, 0, 0 },
-            { 1, 0, 0, 0 },
-            { 1, 1, 0, 0 },
-            { 1, 0, 0, 0 }
-        }
-    },
-    { // I- shape
-        {
-            { 1, 1, 1, 1 },
-            { 0, 0, 0, 0 },
-            { 0, 0, 0, 0 },
-            { 0, 0, 0, 0 }
-        },
-        {
-            { 1, 0, 0, 0 },
-            { 1, 0, 0, 0 },
-            { 1, 0, 0, 0 },
-            { 1, 0, 0, 0 }
-        },
-        {
-            { 1, 1, 1, 1 },
-            { 0, 0, 0, 0 },
-            { 0, 0, 0, 0 },
-            { 0, 0, 0, 0 }
-        },
-        {
-            { 1, 0, 0, 0 },
-            { 1, 0, 0, 0 },
-            { 1, 0, 0, 0 },
-            { 1, 0, 0, 0 }
-        }
-    },
-    { // O- shape
-        {
-            { 1, 1, 0, 0 },
-            { 1, 1, 0, 0 },
-            { 0, 0, 0, 0 },
-            { 0, 0, 0, 0 }
-        },
-        {
-            { 1, 1, 0, 0 },
-            { 1, 1, 0, 0 },
-            { 0, 0, 0, 0 },
-            { 0, 0, 0, 0 }        },
-        {
-            { 1, 1, 0, 0 },
-            { 1, 1, 0, 0 },
-            { 0, 0, 0, 0 },
-            { 0, 0, 0, 0 }
-        },
-        {
-            { 1, 1, 0, 0 },
-            { 1, 1, 0, 0 },
-            { 0, 0, 0, 0 },
-            { 0, 0, 0, 0 }
-        }
-    },
-    { // L- shape
-        {
-            { 1, 1, 1, 0 },
-            { 1, 0, 0, 0 },
-            { 0, 0, 0, 0 },
-            { 0, 0, 0, 0 }
-        },
-        {
-            { 1, 1, 0, 0 },
-            { 0, 1, 0, 0 },
-            { 0, 1, 0, 0 },
-            { 0, 0, 0, 0 }
-        },
-        {
-            { 0, 0, 1, 0 },
-            { 1, 1, 1, 0 },
-            { 0, 0, 0, 0 },
-            { 0, 0, 0, 0 }
-        },
-        {
-            { 1, 0, 0, 0 },
-            { 1, 0, 0, 0 },
-            { 1, 1, 0, 0 },
-            { 0, 0, 0, 0 }
-        }
-    },
-    { // S- shape
-        {
-            { 0, 1, 1, 0 },
-            { 1, 1, 0, 0 },
-            { 0, 0, 0, 0 },
-            { 0, 0, 0, 0 }
-        },
-        {
-            { 1, 0, 0, 0 },
-            { 1, 1, 0, 0 },
-            { 0, 1, 0, 0 },
-            { 0, 0, 0, 0 }
-        },
-        {
-            { 0, 1, 1, 0 },
-            { 1, 1, 0, 0 },
-            { 0, 0, 0, 0 },
-            { 0, 0, 0, 0 }
-        },
-        {
-            { 1, 0, 0, 0 },
-            { 1, 1, 0, 0 },
-            { 0, 1, 0, 0 },
-            { 0, 0, 0, 0 }
-        }
-    }
-};
+    {// T- shape
+     {
+         {0, 0, 0, 0},
+         {1, 1, 1, 0},
+         {0, 1, 0, 0},
+         {0, 0, 0, 0}},
+     {{0, 0, 0, 0},
+      {0, 1, 0, 0},
+      {1, 1, 0, 0},
+      {0, 1, 0, 0}},
+     {{0, 0, 0, 0},
+      {0, 1, 0, 0},
+      {1, 1, 1, 0},
+      {0, 0, 0, 0}},
+     {{0, 0, 0, 0},
+      {1, 0, 0, 0},
+      {1, 1, 0, 0},
+      {1, 0, 0, 0}}},
+    {// I- shape
+     {
+         {1, 1, 1, 1},
+         {0, 0, 0, 0},
+         {0, 0, 0, 0},
+         {0, 0, 0, 0}},
+     {{1, 0, 0, 0},
+      {1, 0, 0, 0},
+      {1, 0, 0, 0},
+      {1, 0, 0, 0}},
+     {{1, 1, 1, 1},
+      {0, 0, 0, 0},
+      {0, 0, 0, 0},
+      {0, 0, 0, 0}},
+     {{1, 0, 0, 0},
+      {1, 0, 0, 0},
+      {1, 0, 0, 0},
+      {1, 0, 0, 0}}},
+    {// O- shape
+     {
+         {1, 1, 0, 0},
+         {1, 1, 0, 0},
+         {0, 0, 0, 0},
+         {0, 0, 0, 0}},
+     {{1, 1, 0, 0},
+      {1, 1, 0, 0},
+      {0, 0, 0, 0},
+      {0, 0, 0, 0}},
+     {{1, 1, 0, 0},
+      {1, 1, 0, 0},
+      {0, 0, 0, 0},
+      {0, 0, 0, 0}},
+     {{1, 1, 0, 0},
+      {1, 1, 0, 0},
+      {0, 0, 0, 0},
+      {0, 0, 0, 0}}},
+    {// L- shape
+     {
+         {1, 1, 1, 0},
+         {1, 0, 0, 0},
+         {0, 0, 0, 0},
+         {0, 0, 0, 0}},
+     {{1, 1, 0, 0},
+      {0, 1, 0, 0},
+      {0, 1, 0, 0},
+      {0, 0, 0, 0}},
+     {{0, 0, 1, 0},
+      {1, 1, 1, 0},
+      {0, 0, 0, 0},
+      {0, 0, 0, 0}},
+     {{1, 0, 0, 0},
+      {1, 0, 0, 0},
+      {1, 1, 0, 0},
+      {0, 0, 0, 0}}},
+    {// S- shape
+     {
+         {0, 1, 1, 0},
+         {1, 1, 0, 0},
+         {0, 0, 0, 0},
+         {0, 0, 0, 0}},
+     {{1, 0, 0, 0},
+      {1, 1, 0, 0},
+      {0, 1, 0, 0},
+      {0, 0, 0, 0}},
+     {{0, 1, 1, 0},
+      {1, 1, 0, 0},
+      {0, 0, 0, 0},
+      {0, 0, 0, 0}},
+     {{1, 0, 0, 0},
+      {1, 1, 0, 0},
+      {0, 1, 0, 0},
+      {0, 0, 0, 0}}}};
 
 // void shapeColor( int m,SDL_Rect box , SDL_Renderer* render) {
 
-   
-   
 //        switch(m){
 //            case 1:
 //                SDL_SetRenderDrawColor(render, 50 , 40 , 60 , 255);
@@ -148,7 +105,7 @@ int shapes[5][4][4][4] = {
 //                break;
 //            case 2:
 //                SDL_SetRenderDrawColor(render, 10 , 70 , 60 , 255);
-//                SDL_RenderFillRect(render , &box);         
+//                SDL_RenderFillRect(render , &box);
 //                break;
 //            case 3:
 //                SDL_SetRenderDrawColor(render, 50 , 90 , 0 , 255);
@@ -163,161 +120,183 @@ int shapes[5][4][4][4] = {
 //                SDL_RenderFillRect(render , &box);
 //                break;
 //        }
-            
+
 //     }
 
-
-     
-
-
-
-int gridarray[10][20] = { 0 };
+int gridarray[10][20] = {0};
 
 int main()
 {
     SDL_Init(SDL_INIT_VIDEO);
     int width = 480;
     int height = 700;
-    SDL_Window *window = SDL_CreateWindow("window",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,width,height,0);
-    
-    SDL_Renderer *render = SDL_CreateRenderer(window,-1,0);
+    SDL_Window *window = SDL_CreateWindow("window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, 0);
+
+    SDL_Renderer *render = SDL_CreateRenderer(window, -1, 0);
     const int rows = 20;
     const int cols = 10;
-    
 
-    
-
-
- 
     SDL_Event event;
     bool isrunning = true;
-    
 
     SDL_Point currentpos;
     currentpos.x = 0;
     currentpos.y = 5;
 
     int currentrot = 0;
-    int currentshape = 3; 
+    int currentshape = 3;
 
-    while(isrunning)
+    while (isrunning)
     {
-        while(SDL_PollEvent(&event))
-        { 
+        while (SDL_PollEvent(&event))
+        {
 
-            if(event.type == SDL_QUIT)
+            if (event.type == SDL_QUIT)
             {
                 isrunning = false;
             }
-            if(event.type == SDL_KEYDOWN)
+            if (event.type == SDL_KEYDOWN)
             {
-                if (event.key.keysym.sym == SDLK_DOWN){
+                if (event.key.keysym.sym == SDLK_DOWN)
+                {
                     currentpos.y += 1;
                 }
-                else if (event.key.keysym.sym == SDLK_RIGHT){
+                else if (event.key.keysym.sym == SDLK_RIGHT)
+                {
                     currentpos.x += 1;
                 }
-                else if (event.key.keysym.sym == SDLK_LEFT){
+                else if (event.key.keysym.sym == SDLK_LEFT)
+                {
                     currentpos.x -= 1;
                 }
-                else if(event.key.keysym.sym == SDLK_a){
+                else if (event.key.keysym.sym == SDLK_a)
+                {
                     currentrot -= 1;
                 }
-                else if(event.key.keysym.sym == SDLK_s){
+                else if (event.key.keysym.sym == SDLK_s)
+                {
                     currentrot += 1;
                 }
 
-                if(currentrot< 0){
+                if (currentrot < 0)
+                {
                     currentrot = 3;
                 }
-                if(currentrot > 3){
+                if (currentrot > 3)
+                {
                     currentrot = 0;
                 }
             }
-        
         }
-        
-        SDL_SetRenderDrawColor(render , 0 , 0, 0, 255);
+
+        SDL_SetRenderDrawColor(render, 0, 0, 0, 255);
         SDL_RenderClear(render);
-
-    
-
 
         static SDL_Rect box;
 
-        box.w = width/cols;
-        box.h = height/rows;
+        box.w = height / rows;
+        box.h = height / rows;
 
         // gridarray[0][9] = 1;
         // gridarray[2][9] = 1;
         // gridarray[3][9] = 1;
 
-
-        //for drawing the grids
-        for(int x = 0; x <10 ; x ++){
-            for( int y = 0 ; y < 20 ; y++) {
+        // for drawing the grids
+        for (int x = 0; x < 10; x++)
+        {
+            for (int y = 0; y < 20; y++)
+            {
                 box.x = x * box.w;
                 box.y = y * box.h;
-                SDL_SetRenderDrawColor(render , 255 , 255 , 255, 255);
-                SDL_RenderDrawRect(render , &box); 
+                SDL_SetRenderDrawColor(render, 255, 255, 255, 255);
+                SDL_RenderDrawRect(render, &box);
 
-                
-                //for transfereing shape to the grid permenantly
-                if (gridarray[x][y] != 0) {
+                // for transfereing shape to the grid permenantly
+                if (gridarray[x][y] != 0)
+                {
 
-                    SDL_SetRenderDrawColor(render , 255 , 0 ,255 ,255);
-                    SDL_RenderFillRect(render , &box);
+                    SDL_SetRenderDrawColor(render, 255, 255, 255, 255);
+                    SDL_RenderFillRect(render, &box);
                 }
-
-
-
             }
         }
 
         bool copyEnabled = false;
 
         //
-       
-        for(int x =0 ; x< 4 ; x++){
-            for(int y = 0 ; y < 4  ; y++){
+
+        for (int x = 0; x < 4; x++)
+        {
+            for (int y = 0; y < 4; y++)
+            {
                 box.x = (currentpos.x + x) * box.w;
                 box.y = (currentpos.y + y) * box.h;
-                
-                if (shapes[currentshape][currentrot][x][y] != 0) {
-                    if(currentpos.y + y == 19 || gridarray[currentpos.x + x][currentpos.y + y + 1] != 0){
-                        
-                        copyEnabled = true;
 
+                if (shapes[currentshape][currentrot][x][y] != 0)
+                {
+                    if (currentpos.y + y == 19 || gridarray[currentpos.x + x][currentpos.y + y + 1] != 0)
+                    {
+
+                        copyEnabled = true;
                     }
 
-                    
-                    SDL_SetRenderDrawColor(render, 50 , 40 , 60 , 255);
-                    SDL_RenderFillRect(render , &box);
-                    
+                    SDL_SetRenderDrawColor(render, 255, 0, 0, 255);
+                    SDL_RenderFillRect(render, &box);
                 }
             }
         }
-        if(copyEnabled){
-            for(int i =0 ; i< 4; i++){
-                for(int j = 0 ; j<4; j++){
-                    if(shapes[currentshape][currentrot][i][j] != 0){
+        if (copyEnabled)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (shapes[currentshape][currentrot][i][j] != 0)
+                    {
                         gridarray[currentpos.x + i][currentpos.y + j] = shapes[currentshape][currentrot][i][j];
                     }
                 }
             }
             currentpos.y = 0;
         }
-        
 
+        // for entire row filled
+        for (int i = 0; i < 20; i++)
+        {
+            bool full = true;
+            for (int j = 0; j < 10; j++)
+            {
+                if (gridarray[i][j] == 0)
+                {
+                    full = false;
+                    break               ;
+                }
+            }
+
+            if (full)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    gridarray[i][j] = 0;
+                    gridarray[0][j] = 0; //get the top row vacant
+                }
+                for (int k = i; k > 0 ; k--)
+                {
+                    for (int j = 0; j < 10; j++)
+                    {
+
+                        gridarray[k][j] = gridarray[k - 1][j];
+                    }
+                }
+                
+
+                }
+            }
+        
 
         SDL_Delay(100);
 
-        
-
-
         SDL_RenderPresent(render);
-
-        
     }
-    return 0;
+    
 }
